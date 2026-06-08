@@ -10,7 +10,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/products', function () {
-    return Product::all();
+    return Product::with('category')->get();
 });
 
 Route::get('/products/{id}', function ($id) {
